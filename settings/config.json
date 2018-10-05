@@ -1,0 +1,9 @@
+{
+  "restUrls" : {
+    "claimTask":"/rest/claimTask",
+    "getAllTasks":"/rest/getAllTasks",
+    "getWaitingOrStartedTasks":"/rest/getWaitingOrStartedTasks",
+    "getWaitingTasks":"/rest/getWaitingTasks",
+    "mainUrl":"brubot.pythonanywhere.com"
+  }
+}
