@@ -1,5 +1,5 @@
 import json
-import http.client
+import http.client, urllib.parse
 
 
 
@@ -11,9 +11,11 @@ class RestConnector(object):
         self.configDict = {}
         self.__extractJson(configJsonPath)
 
+
     def __extractJson(self, configJsonPath):
         with open(configJsonPath) as f:
             self.configDict = json.load(f)["restUrls"]
+
 
     def getAllTasks(self):
         print("RestConnector: getAllTasks")
@@ -22,12 +24,14 @@ class RestConnector(object):
         except Exception as e:
             return {}
 
+
     def getWaitingTasks(self):
         print("RestConnector: getWaitingTasks")
         try:
             return self.getRestRepsonse(self.configDict["getWaitingTasks"])
         except Exception as e:
             return {}
+
 
     def getWaitingOrStartedTasks(self):
         print("RestConnector: getWaitingTasks")
@@ -36,11 +40,23 @@ class RestConnector(object):
         except Exception as e:
             return {}
 
+
     def claimTask(self, id):
+        params = urllib.parse.urlencode({'taskId': id})
+        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+        conn = http.client.HTTPSConnection(self.configDict["mainUrl"])
+        conn.request("POST", self.configDict["claimTask"], params, headers)
+        response = conn.getresponse()
+
+        print("claimTask response.status = " + str(response.status))
+
+        if response.status == "200":
+            return True
         return False
 
     def updateTaskStatus(self, id, status):
         pass
+
 
     def getRestRepsonse(self, restUrl):
         conn = http.client.HTTPSConnection(self.configDict["mainUrl"])

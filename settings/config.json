@@ -4,6 +4,7 @@
     "getAllTasks":"/rest/getAllTasks",
     "getWaitingOrStartedTasks":"/rest/getWaitingOrStartedTasks",
     "getWaitingTasks":"/rest/getWaitingTasks",
+    "mainUrl2":"127.0.0.1:8000",
     "mainUrl":"brubot.pythonanywhere.com"
   }
 }
