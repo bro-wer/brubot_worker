@@ -37,7 +37,8 @@ class Task(object):
 
     def getJobStatus(self):
         print("Task: getJobStatus")
-        status = {"status" : "ST"}
+        status = {"status" : "ST",
+                  "message": "some test message"}
         return status
 
     def printme(self):

@@ -1,7 +1,5 @@
-import json
+import datetime, json
 import http.client, urllib.parse
-
-
 
 class RestConnector(object):
     """docstring for RestConnector."""
@@ -55,7 +53,13 @@ class RestConnector(object):
         return False
 
     def updateTaskStatus(self, id, status):
-        pass
+        params = urllib.parse.urlencode({'taskId': id,
+                                         'status': status,
+                                         'timestamp': str(datetime.datetime.now())})
+        headers = {"Content-type": "application/x-www-form-urlencoded", "Accept": "text/plain"}
+        conn = http.client.HTTPSConnection(self.configDict["mainUrl"])
+        conn.request("POST", self.configDict["updateTaskStatus"], params, headers)
+        response = conn.getresponse()
 
 
     def getRestRepsonse(self, restUrl):

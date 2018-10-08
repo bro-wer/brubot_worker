@@ -1,1 +1,1 @@
-{"id": 2, "taskName": "test2", "status": "ST", "type": "Undefined"}
+{"id": 2, "taskName": "test2", "status": "ST", "type": "Undefined", "message": "some test message", "updated_at": "2018-10-08T10:57:03.314Z"}

@@ -5,6 +5,7 @@
     "getWaitingOrStartedTasks":"/rest/getWaitingOrStartedTasks",
     "getWaitingTasks":"/rest/getWaitingTasks",
     "mainUrl2":"127.0.0.1:8000",
-    "mainUrl":"brubot.pythonanywhere.com"
+    "mainUrl":"brubot.pythonanywhere.com",
+    "updateTaskStatus":"/rest/updateTaskStatus"
   }
 }
